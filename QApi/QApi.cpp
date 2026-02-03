@@ -1,6 +1,4 @@
 #include "QApi.h"
-
-#include <QNetworkReply>
 #include <QJsonParseError>
 
 QApi::QApi(QObject* parent)
@@ -50,6 +48,17 @@ QByteArray QApi::encodeBody(const QJsonValue& body, const Options& opt, QString*
     }
     return q.query(QUrl::FullyEncoded).toUtf8();
 }
+
+void QApi::Get(const QUrl& api)
+{
+    Get(api, Options{});
+}
+
+void QApi::Post(const QUrl& api, const QJsonValue& body)
+{
+    Post(api, body, Options{});
+}
+
 
 void QApi::Get(const QUrl& api, const Options& opt)
 {

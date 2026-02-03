@@ -17,7 +17,11 @@ add_library(QApi STATIC
   QApi.h
 )
 
-target_link_libraries(QApi PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network)
+target_include_directories(QApi
+  PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+target_link_libraries(QApi PUBLIC Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network)
 
 target_compile_definitions(QApi PRIVATE QAPI_LIBRARY)
-
