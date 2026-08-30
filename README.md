@@ -27,6 +27,19 @@ add_subdirectory(QApi)
 target_link_libraries(your_target PRIVATE QApi)
 ```
 
+### As a git submodule
+
+```bash
+git submodule add https://github.com/neylorxt/QApi.git libs/QApi
+```
+
+Then in your `CMakeLists.txt`:
+
+```cmake
+add_subdirectory(libs/QApi)
+target_link_libraries(your_target PRIVATE QApi)
+```
+
 ### With CMake (manually)
 
 Copy `QApi.h`, `QApi.cpp`, and `CMakeLists.txt` into your project tree.
